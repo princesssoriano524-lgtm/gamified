@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Quest — Gamified Module</title>
+    <meta name="description" content="A gamified PPT-style digital module for learning mathematics: slides, quizzes, XP, streaks, achievements, and a lightning round." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript">This app needs JavaScript enabled.</div>
+    </noscript>
+
+    <div id="app">
+      <header class="app-header" role="banner">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">➗</span>
+          <span class="title" aria-live="polite">Math Quest</span>
+        </div>
+        <div class="status">
+          <div class="stat">
+            <span class="label">Level</span>
+            <span id="level" class="value">1</span>
+          </div>
+          <div class="stat">
+            <span class="label">XP</span>
+            <div class="xp-bar" aria-label="Experience progress">
+              <div id="xpFill" class="xp-fill" style="width: 0%"></div>
+            </div>
+            <span id="xpText" class="xp-text">0 / 100</span>
+          </div>
+          <div class="stat hearts" aria-label="Lives">
+            <span id="hearts" class="hearts-container" title="Lives">❤️❤️❤️</span>
+          </div>
+          <button id="btnAchievements" class="icon-btn" title="Achievements" aria-label="Achievements">🏆</button>
+          <button id="btnMenu" class="icon-btn" title="Menu and settings" aria-label="Menu">☰</button>
+        </div>
+      </header>
+
+      <div class="progress" aria-label="Slide progress">
+        <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+      </div>
+
+      <main id="stage" class="stage" role="main" aria-live="polite">
+        <!-- Slides render here -->
+      </main>
+
+      <footer class="app-footer" role="contentinfo">
+        <div class="nav">
+          <button id="btnPrev" class="nav-btn" aria-label="Previous slide">← Prev</button>
+          <button id="btnHint" class="nav-btn ghost" aria-label="Get a hint">Hint</button>
+          <button id="btnCheck" class="nav-btn primary" aria-label="Check answer">Check</button>
+          <button id="btnNext" class="nav-btn" aria-label="Next slide">Next →</button>
+        </div>
+        <div class="footer-help">
+          <span>Tip: Use ← → to navigate, Space to check, H for hint.</span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Overlays -->
+    <div id="overlay" class="overlay hidden" aria-hidden="true"></div>
+
+    <dialog id="menuDialog" class="dialog">
+      <form method="dialog">
+        <h2>Menu</h2>
+        <div class="dialog-section">
+          <button id="btnContinue" class="nav-btn" value="close">Continue</button>
+        </div>
+        <div class="dialog-section">
+          <label class="toggle">
+            <input id="toggleSound" type="checkbox" checked />
+            <span>Sound effects</span>
+          </label>
+          <label class="toggle">
+            <input id="toggleAnimations" type="checkbox" checked />
+            <span>Animations</span>
+          </label>
+        </div>
+        <div class="dialog-section grid">
+          <button id="btnRestart" type="button" class="danger">Restart Module</button>
+          <button id="btnExport" type="button">Export Progress</button>
+          <button id="btnImport" type="button">Import Progress</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="achievementsDialog" class="dialog">
+      <form method="dialog">
+        <h2>Achievements</h2>
+        <div id="achievementsList" class="achievements-list"></div>
+        <div class="dialog-actions">
+          <button value="close" class="nav-btn">Close</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="confetti" class="confetti-layer" aria-hidden="true"></div>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>

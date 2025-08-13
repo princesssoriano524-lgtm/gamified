@@ -1,0 +1,129 @@
+*:focus{outline:none}
+:root{
+  --bg: #0c1021;
+  --bg-soft: #121735;
+  --panel: #161b3d;
+  --text: #e6e8ff;
+  --muted: #a9b1ff;
+  --primary: #7c9cff;
+  --primary-2: #4e72ff;
+  --accent: #ffd166;
+  --success: #38d9a9;
+  --danger: #ff5c7c;
+  --shadow: rgba(0,10,40,0.5);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--text);
+  background: radial-gradient(1200px 800px at 10% -10%, #1a2052 10%, transparent 50%),
+              radial-gradient(800px 600px at 110% 10%, #1c245e 10%, transparent 60%),
+              var(--bg);
+}
+
+.noscript{padding:1rem;background:#222;color:#fff;text-align:center}
+
+#app{display:flex;flex-direction:column;min-height:100vh}
+
+.app-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px; gap:16px;
+  background:linear-gradient(180deg, rgba(22,27,61,0.9), rgba(22,27,61,0.6));
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  position:sticky;top:0;z-index:10;backdrop-filter:saturate(140%) blur(8px);
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:0.4px}
+.brand .logo{font-size:26px}
+.brand .title{font-size:18px}
+
+.status{display:flex;align-items:center;gap:12px}
+.stat{display:flex;align-items:center;gap:8px}
+.stat .label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+.stat .value{font-weight:700}
+
+.xp-bar{width:160px;height:10px;background:#0f1440;border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+.xp-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-2));box-shadow:0 0 16px rgba(124,156,255,0.6) inset}
+.xp-text{font-size:12px;color:var(--muted)}
+
+.hearts-container{font-size:18px}
+
+.icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.12);color:var(--text);padding:8px 10px;border-radius:10px;cursor:pointer}
+.icon-btn:hover{border-color:rgba(255,255,255,0.22);transform:translateY(-1px)}
+
+.progress{height:6px;background:#0f1440;border-top:1px solid rgba(255,255,255,0.06)}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#f77f00);box-shadow:0 0 12px rgba(255,209,102,0.6)}
+
+.stage{flex:1;display:grid;place-items:center;padding:24px}
+.slide{
+  width:min(960px, 96vw);
+  min-height:520px;
+  background:linear-gradient(180deg, rgba(22,27,61,0.8), rgba(22,27,61,0.6));
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:20px; box-shadow:0 30px 70px var(--shadow);
+  padding:28px; position:relative; overflow:hidden;
+}
+.slide-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.slide-title{font-size:24px;font-weight:800}
+.slide-subtitle{font-size:14px;color:var(--muted)}
+
+.slide-content{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
+.slide-hero{font-size:80px;line-height:1}
+.slide-panel{background:linear-gradient(180deg, rgba(0,0,0,0.2), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:18px}
+.slide-list{margin:0;padding-left:18px}
+.slide-list li{margin:8px 0}
+
+.quiz{display:grid;gap:16px}
+.input-row{display:flex;align-items:center;gap:10px}
+.input-row input[type="number"], .input-row input[type="text"]{
+  width:140px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.16);
+  background:#0f1440;color:var(--text);font-size:18px;font-weight:700;text-align:center;
+}
+
+.nav{display:flex;align-items:center;gap:10px}
+.nav-btn{background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0));border:1px solid rgba(255,255,255,0.16);color:var(--text);padding:12px 16px;border-radius:12px;cursor:pointer}
+.nav-btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,0.26)}
+.nav-btn.primary{background:linear-gradient(180deg, var(--primary), var(--primary-2));border-color:transparent;color:#fff;font-weight:700}
+.nav-btn.ghost{background:transparent}
+.nav-btn.danger{background:linear-gradient(180deg, #ff7993, #ff3f68);border-color:transparent;color:#fff}
+
+.app-footer{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-top:1px solid rgba(255,255,255,0.06);backdrop-filter:saturate(140%) blur(8px)}
+.footer-help{color:var(--muted);font-size:12px}
+
+.muted{color:var(--muted)}
+
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(2px);z-index:20}
+.hidden{display:none}
+.dialog{border:1px solid rgba(255,255,255,0.18);border-radius:16px;background:linear-gradient(180deg, #151a3a, #101536);color:var(--text);padding:20px;max-width:680px;width:min(96vw, 680px);box-shadow:0 20px 60px var(--shadow)}
+.dialog::backdrop{background:rgba(0,0,0,0.6)}
+.dialog h2{margin-top:0}
+.dialog-section{margin:14px 0}
+.dialog-section.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.toggle{display:flex;align-items:center;gap:8px}
+
+.achievements-list{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:12px}
+.achievement{border:1px solid rgba(255,255,255,0.16);border-radius:12px;padding:12px;background:#0f1440}
+.achievement.locked{opacity:0.5;filter:grayscale(0.4)}
+.achievement .title{font-weight:700}
+.achievement .desc{font-size:12px;color:var(--muted)}
+
+.confetti-layer{pointer-events:none;position:fixed;inset:0;overflow:hidden;z-index:30}
+
+/* Animations */
+.fade-in{animation:fadeIn 300ms ease-out both}
+.slide-in-right{animation:slideInRight 380ms cubic-bezier(.2,.8,.2,1) both}
+.slide-in-left{animation:slideInLeft 380ms cubic-bezier(.2,.8,.2,1) both}
+.pulse{animation:pulse 600ms ease-out 1}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideInRight{from{transform:translateX(40px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes slideInLeft{from{transform:translateX(-40px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+
+/* Responsive */
+@media (max-width: 860px){
+  .slide-content{grid-template-columns:1fr}
+  .slide-hero{font-size:56px}
+}
